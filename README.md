@@ -98,11 +98,10 @@ stay smooth without burning power while you read. `godot.log` prints frame-time 
 - [ ] A small settings window (fish count, frame rate, ink colour)
 - [ ] Start-with-Windows toggle in the tray menu
 
-## Art and AI disclosure
+## Art
 
-The four paintings (two carp, a willow branch, a lotus) were generated with an AI image model from the prompts in
-[`art/prompts`](art/prompts), then cleaned up with [`art/prep.py`](art/prep.py). They are released as
-[CC0](art/LICENSE), so use them freely. The code was written with an AI coding assistant (Claude).
+The four paintings (two carp, a willow branch, a lotus) are released as [CC0](art/LICENSE), so use them freely.
+The prompts are in [`art/prompts`](art/prompts) and the cleanup script is [`art/prep.py`](art/prep.py).
 
 ## Contributing
 
