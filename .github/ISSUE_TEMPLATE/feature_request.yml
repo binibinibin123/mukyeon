@@ -1,0 +1,11 @@
+name: Feature request
+description: An idea for the pond
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: What should happen, and when would you notice it?
+    validations:
+      required: true

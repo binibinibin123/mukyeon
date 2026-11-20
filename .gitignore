@@ -1,0 +1,6 @@
+.godot/
+export/
+dist/
+*.exe
+*.log
+__pycache__/

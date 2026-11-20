@@ -1,0 +1,2 @@
+Traditional East Asian sumi-e ink wash painting on pure white (#FFFFFF) background, nothing else in the image: no paper texture, no frame, no shadow, no signature, no seal, no text. Real brush behaviour: wet ink pooling, soft bleeding edges, dry-brush streaks, confident few strokes, generous tonal range from pale grey wash to deep black.
+Subject: a small asymmetric cluster of two large lotus leaves and one closed bud, seen from above, painted in loose wet wash with visible veins, floating, isolated in the centre with wide white margin. Square 1:1 image.

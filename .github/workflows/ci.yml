@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  GODOT_VERSION: 4.7.2
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build helper (MinGW cross compile)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mingw-w64
+          x86_64-w64-mingw32-g++ -std=c++17 -O2 -municode -mwindows -static \
+            helper/helper.cpp -o mukyeon_helper.exe -lws2_32 -lshell32 -luser32
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mukyeon_helper
+          path: mukyeon_helper.exe
+
+      - name: Install Godot
+        run: |
+          curl -fsSL -o godot.zip "https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q godot.zip
+          echo "GODOT=$PWD/Godot_v${GODOT_VERSION}-stable_linux.x86_64" >> "$GITHUB_ENV"
+
+      - name: Import project
+        run: $GODOT --headless --path . --import
+
+      - name: Start up headless and fail on script or shader errors
+        run: |
+          $GODOT --headless --path . --quit-after 120 -- --windowed --demo 2>&1 | tee run.log
+          if grep -E "SCRIPT ERROR|SHADER ERROR|Parse Error" run.log; then exit 1; fi
