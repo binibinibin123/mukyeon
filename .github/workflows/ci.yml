@@ -21,7 +21,7 @@ jobs:
           x86_64-w64-mingw32-g++ -std=c++17 -O2 -municode -mwindows -static \
             helper/helper.cpp -o mukyeon_helper.exe -lws2_32 -lshell32 -luser32
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: mukyeon_helper
           path: mukyeon_helper.exe
