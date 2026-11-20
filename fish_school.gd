@@ -85,7 +85,7 @@ func step(dt: float, cursor: Vector2, cursor_speed: float, cursor_on: bool) -> v
 				var d := away.length()
 				if d < reach and d > 0.01:
 					var k := 1.0 - d / reach
-					steer += away / d * k * k * 7.0
+					steer += away / d * k * k * 14.0
 
 		var m := EDGE
 		if f.pos.x < m: steer.x += (m - f.pos.x) / m * 3.0

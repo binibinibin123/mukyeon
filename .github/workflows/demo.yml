@@ -37,9 +37,9 @@ jobs:
 
       - name: Encode
         run: |
-          ffmpeg -y -i out/demo.avi -vf "fade=t=in:st=0:d=1.2,fade=t=out:st=28.8:d=1.2" \
-            -c:v libx264 -preset slow -crf 20 -pix_fmt yuv420p -movflags +faststart out/demo.mp4
-          ffmpeg -y -i out/demo.mp4 -vf "fps=14,scale=800:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=96[p];[b][p]paletteuse=dither=bayer:bayer_scale=4" out/demo.gif
+          ffmpeg -y -i out/demo.avi -vf "fade=t=in:st=0:d=1.2,fade=t=out:st=28.8:d=1.2"             -c:v libx264 -preset slow -crf 27 -pix_fmt yuv420p -movflags +faststart out/demo.mp4
+          # README preview: 12 s from the middle, small and with few colours to stay light.
+          ffmpeg -y -ss 11 -t 12 -i out/demo.mp4 -vf "fps=12,scale=640:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=64[p];[b][p]paletteuse=dither=bayer:bayer_scale=5" out/demo.gif
           ffmpeg -y -ss 23 -i out/demo.mp4 -frames:v 1 out/screenshot.png
           ls -la out
 
